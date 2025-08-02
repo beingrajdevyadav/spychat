@@ -25,7 +25,7 @@ body {
     padding: 2rem;
     text-align: center;
     box-shadow: 0px 3px 520px #0000002d;
-    /* display: none; */
+    display: none;
 }
 
 .hero img {
@@ -60,7 +60,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    display: none;
+    /* display: none; */
 }
 
 
@@ -71,7 +71,6 @@ body {
 }
 
 .register .user-form {
-    /* border: 1px solid; */
     width: 30%;
 }
 
@@ -203,5 +202,16 @@ body {
    .hero img{
     width: 100%;
     margin-bottom: 1rem;
+   }
+   .register{
+    flex-direction: column;
+    width: 90%;
+   }
+   .register img{
+    width: 50%;
+    margin-bottom: 1rem;
+   }
+  .register .user-form{
+    width: 100%;
    }
 }
