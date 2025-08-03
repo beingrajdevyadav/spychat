@@ -31,11 +31,22 @@ function showRegister(){
     hero.style.display = "none";
     register.style.display = "flex";
     chats.style.display = "none";
-}
+};
 
 // show chat
 function showChat(){
     hero.style.display = "none";
     register.style.display = "none";
     chats.style.display = "block";
-}
+};
+
+// window onload
+window.onload = async()=>{
+    let user = JSON.parse(localStorage.getItem("spychat-user"));
+    if(!user){
+        showHero();
+    }else{
+        showChat();
+        socket.emit("joinChat", user);
+    };
+};
