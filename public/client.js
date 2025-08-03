@@ -27,25 +27,25 @@ function showHero() {
 };
 
 // show register
-function showRegister(){
+function showRegister() {
     hero.style.display = "none";
     register.style.display = "flex";
     chats.style.display = "none";
 };
 
 // show chat
-function showChat(){
+function showChat() {
     hero.style.display = "none";
     register.style.display = "none";
     chats.style.display = "block";
 };
 
 // window onload
-window.onload = async()=>{
+window.onload = async () => {
     let user = JSON.parse(localStorage.getItem("spychat-user"));
-    if(!user){
+    if (!user) {
         showHero();
-    }else{
+    } else {
         showChat();
         socket.emit("joinChat", user);
     };
@@ -55,9 +55,9 @@ window.onload = async()=>{
 nextButton.addEventListener("click", showRegister);
 
 // start button click
-startButton.addEventListener("click", async()=>{
+startButton.addEventListener("click", async () => {
     const username = usernameInput.value.trim();
-    if(username){
+    if (username) {
         const ip = await getIP();
         const uniqueId = `${username}_${ip}`;
         const user = {
@@ -66,16 +66,16 @@ startButton.addEventListener("click", async()=>{
         localStorage.setItem("spychat-user", JSON.stringify(user));
         showChat();
         socket.emit("joinChat", user);
-    }else{
+    } else {
         showHero();
     }
 });
 
 
 // send button click
-sendBtn.addEventListener("click", ()=>{
+sendBtn.addEventListener("click", () => {
     const txt = msgInput.value.trim();
-    if(txt){
+    if (txt) {
         const user = JSON.parse(localStorage.getItem("spychat-user"));
         socket.emit("message", {
             user: user,
@@ -84,4 +84,26 @@ sendBtn.addEventListener("click", ()=>{
         });
         msgInput.value = "";
     }
+});
+
+
+// socket.io info
+socket.on("info", (data) => {
+    if (data.type === "info") {
+        const p = document.createElement("p");
+        p.className = "info";
+        p.innerText = data.message;
+        chatsBody.appendChild(p);
+    }
+});
+
+
+// socket.io message
+socket.on("message", (data) => {
+    const user = JSON.parse(localStorage.getItem("spychat-user"));
+    let clname = data.user.uniqueId === user.uniqueId ? "chat sent" : "chat received";
+    const p = document.createElement("p");
+    p.classList.add(clname);
+    p.textContent = `${data.message}`;
+    chatsBody.appendChild(p);
 });
