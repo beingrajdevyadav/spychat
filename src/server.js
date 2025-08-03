@@ -11,14 +11,33 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // socket.io connection
 io.on("connection", (socket)=>{
+
+    // Listen for incoming messages
     socket.on("joinChat", (user)=>{
         socket.user = user;
         socket.emit("info", {
             type: "info",
             message: `Welcome ${user}! You have joined the chat.`   
         });
-    })
-})
+    });
+
+
+    // broadcast messages to all clients
+    socket.broadcast.emit("info", {
+        type: "info",
+        message: `${socket.user} has joined the chat.`
+    });
+
+
+    // handle incoming messages
+    socket.on("message", (msg)=>{
+        io.emit("message", {
+            type: "message",
+            ...msg,
+        });
+    });
+
+});
 
 
 const PORT = 3000;
