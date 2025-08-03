@@ -118,8 +118,11 @@ body {
 
 .chats-header {
     padding: 1rem;
-    background-color: #ca6526;
+   background-color: #689545;
     color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .chats-body {
@@ -131,12 +134,18 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-image: linear-gradient(to bottom, #f0f0f08d, #ffffff2b), url('https://www.shutterstock.com/image-vector/social-media-sketch-vector-seamless-600nw-1660950727.jpg');
 }
 
 .chats-body .info {
     text-align: center;
     font-size: 12px;
     color: #555;
+    background-color: #f1f0f0;
+    align-self: center;
+    padding: 5px 7px;
+    border-radius: 10px;
+    color: #689545;
 }
 
 .chats-body .chat {
