@@ -70,3 +70,18 @@ startButton.addEventListener("click", async()=>{
         showHero();
     }
 });
+
+
+// send button click
+sendBtn.addEventListener("click", ()=>{
+    const txt = msgInput.value.trim();
+    if(txt){
+        const user = JSON.parse(localStorage.getItem("spychat-user"));
+        socket.emit("message", {
+            user: user,
+            message: txt,
+            time: new Date().toLocaleTimeString()
+        });
+        msgInput.value = "";
+    }
+});
