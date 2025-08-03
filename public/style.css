@@ -26,6 +26,7 @@ body {
     text-align: center;
     box-shadow: 0px 3px 520px #0000002d;
     /* display: none; */
+    color: #e98e0e;
 }
 
 .hero img {
@@ -39,7 +40,7 @@ body {
     margin-top: 2rem;
     border: none;
     outline: none;
-    background-color: #333;
+    background-color: #538c27;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -47,7 +48,7 @@ body {
 }
 
 .hero button:hover {
-    background-color: #222;
+    background-color: #63963b;
 }
 
 
@@ -61,6 +62,7 @@ body {
     justify-content: space-around;
     align-items: center;
     display: none;
+    color: #e98e0e;
 }
 
 
@@ -96,7 +98,7 @@ body {
     height: 50px;
     border: none;
     outline: none;
-    background-color: #333;
+    background-color: #689545;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -104,7 +106,7 @@ body {
 }
 
 .user-form button:hover {
-    background-color: #111;
+    background-color: #538c27;
 }
 
 /* CHAT SECTION  */
@@ -136,7 +138,15 @@ body {
     gap: 10px;
     background-image: linear-gradient(to bottom, #f0f0f08d, #ffffff2b), url('https://www.shutterstock.com/image-vector/social-media-sketch-vector-seamless-600nw-1660950727.jpg');
 }
+/* Hide scrollbar for chats-body */
+#chats-body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
 
+#chats-body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
 .chats-body .info {
     text-align: center;
     font-size: 12px;
@@ -191,7 +201,7 @@ body {
     height: 50px;
     border: none;
     outline: none;
-    background-color: #656565;
+    background-color: #63963b;
     color: #fff;
     cursor: pointer;
     border-radius: 25px;
@@ -199,7 +209,7 @@ body {
 }
 
 .chats-footer button:hover {
-    background-color: #444;
+    background-color: #538c27;
 }
 
 

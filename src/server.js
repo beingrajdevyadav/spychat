@@ -14,6 +14,7 @@ io.on("connection", (socket)=>{
 
     // Listen for incoming messages
     socket.on("joinChat", (user)=>{
+        // console.log(user);
         socket.user = user;
         socket.emit("info", {
             type: "info",
@@ -32,6 +33,7 @@ io.on("connection", (socket)=>{
 
     // handle incoming messages
     socket.on("message", (msg)=>{
+        // console.log(msg);
         io.emit("message", {
             type: "message",
             ...msg,

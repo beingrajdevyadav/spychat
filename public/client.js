@@ -15,7 +15,7 @@ const chatsBody = document.getElementById("chats-body");
 // function to get IP Address
 function getIP() {
     return fetch("https://api.ipify.org?format=json")
-        .then(res => res.json)
+        .then(res => res.json())
         .then(data => data.ip);
 };
 
@@ -90,11 +90,12 @@ sendBtn.addEventListener("click", () => {
 // socket.io info
 socket.on("info", (data) => {
     if (data.type === "info") {
-        console.log(data);
+        // console.log(data);
         const p = document.createElement("p");
         p.className = "info";
         p.innerText = data.message;
         chatsBody.appendChild(p);
+         chatsBody.scrollTop = chatsBody.scrollHeight; // auto-scroll
     }
 });
 
@@ -103,8 +104,10 @@ socket.on("info", (data) => {
 socket.on("message", (data) => {
     const user = JSON.parse(localStorage.getItem("spychat-user"));
     let clname = data.user.uniqueId === user.uniqueId ? "chat sent" : "chat received";
+    let username = data.user.username !== user.username ? `${data.user.username} : ` : "";
     const p = document.createElement("p");
     p.className = clname;
-    p.textContent = `${data.message}`;
+    p.textContent = `${username} ${data.message}`;
     chatsBody.appendChild(p);
+     chatsBody.scrollTop = chatsBody.scrollHeight; // auto-scroll
 });
