@@ -2,11 +2,17 @@ const express = require("express") ;
 const http = require("http") ;
 const { Server } = require("socket.io") ;
 const path = require("path") ;
+require("dotenv").config(); // Load environment variables from .env file
+const cors = require("cors"); // Import CORS middleware
+
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors()); // Enable CORS for all routes
 app.use(express.static(path.join(__dirname, "../public")));
 
 // socket.io connection
@@ -43,7 +49,7 @@ io.on("connection", (socket)=>{
 });
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 6000;
 
 // server listening
 server.listen(PORT, ()=>{
