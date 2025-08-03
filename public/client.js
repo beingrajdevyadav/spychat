@@ -50,3 +50,23 @@ window.onload = async()=>{
         socket.emit("joinChat", user);
     };
 };
+
+// next button click
+nextButton.addEventListener("click", showRegister);
+
+// start button click
+startButton.addEventListener("click", async()=>{
+    const username = usernameInput.value.trim();
+    if(username){
+        const ip = await getIP();
+        const uniqueId = `${username}_${ip}`;
+        const user = {
+            username, ip, uniqueId
+        };
+        localStorage.setItem("spychat-user", JSON.stringify(user));
+        showChat();
+        socket.emit("joinChat", user);
+    }else{
+        showHero();
+    }
+});
