@@ -11,3 +11,10 @@ const usernameInput = document.getElementById("usernameInput");
 const msgInput = document.getElementById("msgInput");
 const sendBtn = document.getElementById("send-btn");
 const chatsBody = document.getElementById("chats-body");
+
+// function to get IP Address
+function getIP(){
+    return fetch("https://api.ipify.org?format=json")
+    .then(res=>res.json)
+    .then(data=>data.ip);
+}
