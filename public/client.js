@@ -90,6 +90,7 @@ sendBtn.addEventListener("click", () => {
 // socket.io info
 socket.on("info", (data) => {
     if (data.type === "info") {
+        console.log(data);
         const p = document.createElement("p");
         p.className = "info";
         p.innerText = data.message;
@@ -103,7 +104,7 @@ socket.on("message", (data) => {
     const user = JSON.parse(localStorage.getItem("spychat-user"));
     let clname = data.user.uniqueId === user.uniqueId ? "chat sent" : "chat received";
     const p = document.createElement("p");
-    p.classList.add(clname);
+    p.className = clname;
     p.textContent = `${data.message}`;
     chatsBody.appendChild(p);
 });

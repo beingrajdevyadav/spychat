@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -40,7 +42,7 @@
             <h2>SpyChat</h2>
         </div>
         <div class="chats-body" id="chats-body">
-            <p class="info">
+            <!-- <p class="info">
                 Lorem, ipsum dolor.
             </p>
             <p class="sent chat">
@@ -48,7 +50,7 @@
             </p>
             <p class="received chat">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            </p>
+            </p> -->
         </div>
 
 
@@ -61,40 +63,8 @@
 
     <!-- javascript  -->
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="client.js"></script>
 
-     <script>
-        const socket = io();
-
-        const hero = document.getElementById('hero');
-        const register = document.getElementById('register');
-        const chats = document.getElementById('chats');
-        const nextButton = document.getElementById('next');
-        const startButton = document.querySelector('.user-form button');
-        const usernameInput = document.getElementById('usernameInput');
-        const msgInput = document.getElementById('msgInput');
-        const sendBtn = document.getElementById('send-btn');
-        const chatsBody = document.getElementById('chats-body');
-
-        nextButton.addEventListener('click', () => {
-            hero.style.display = 'none';
-            register.style.display = 'block';
-        });
-
-        startButton.addEventListener('click', () => {
-            const username = usernameInput.value.trim();
-            if (username) {
-                socket.emit('joinChat', username);
-                register.style.display = 'none';
-                chats.style.display = 'block';
-            } else {
-                alert('Please enter a valid username.');
-            }
-        });
-
-     
-
-      
-     </script>
 
 </body>
 
