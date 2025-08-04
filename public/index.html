@@ -11,6 +11,262 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+    <!-- style css codes -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        /* HERO SECTION  */
+
+        .hero {
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0px 3px 520px #0000002d;
+            /* display: none; */
+            color: #e98e0e;
+        }
+
+        .hero img {
+            width: 60%;
+            margin: 1rem auto 0;
+            display: block;
+        }
+
+        .hero button {
+            padding: 1rem 4rem;
+            margin-top: 2rem;
+            border: none;
+            outline: none;
+            background-color: #538c27;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all .5s ease;
+        }
+
+        .hero button:hover {
+            background-color: #63963b;
+        }
+
+
+        /* REGISTER SECTION  */
+
+        .register {
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0px 3px 520px #0000002d;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            display: none;
+            color: #e98e0e;
+        }
+
+
+        .register img {
+            width: 30%;
+            display: block;
+
+        }
+
+        .register .user-form {
+            width: 30%;
+        }
+
+        .user-form p {
+            margin: .5rem 0;
+            font-size: 14px;
+        }
+
+        .user-form input {
+            width: 100%;
+            height: 50px;
+            padding: 15px;
+            margin-top: 1rem;
+            margin-bottom: .5rem;
+            border-radius: 3px;
+            outline: none;
+            border: 1px solid #aaa;
+            color: #777;
+        }
+
+        .user-form button {
+            width: 100%;
+            height: 50px;
+            border: none;
+            outline: none;
+            background-color: #689545;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all .5s ease;
+        }
+
+        .user-form button:hover {
+            background-color: #538c27;
+        }
+
+        /* CHAT SECTION  */
+
+        .chats {
+            width: 60%;
+            height: 80vh;
+            box-shadow: 0px 3px 520px #0000002d;
+            display: none;
+        }
+
+        .chats-header {
+            padding: 1rem;
+            background-color: #689545;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chats-body {
+            height: 75%;
+            padding: 1rem;
+            background-color: #fff;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-image: linear-gradient(to bottom, #f0f0f08d, #ffffff2b), url('https://www.shutterstock.com/image-vector/social-media-sketch-vector-seamless-600nw-1660950727.jpg');
+        }
+
+        /* Hide scrollbar for chats-body */
+        #chats-body {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE 10+ */
+        }
+
+        #chats-body::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        .chats-body .info {
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+            background-color: #f1f0f0;
+            align-self: center;
+            padding: 5px 7px;
+            border-radius: 10px;
+            color: #689545;
+        }
+
+        .chats-body .chat {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 15px;
+
+        }
+
+        .chats-body .sent {
+            align-self: flex-end;
+            text-align: right;
+            background-color: #dcf8c6;
+            color: #689545;
+        }
+
+        .chats-body .received {
+            align-self: flex-start;
+            text-align: left;
+            background-color: #f1f0f0;
+            color: #555;
+        }
+
+        .chats-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .chats-footer input {
+            width: 80%;
+            height: 50px;
+            padding: 15px;
+            outline: none;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            color: #555;
+        }
+
+        .chats-footer button {
+            width: 18%;
+            height: 50px;
+            border: none;
+            outline: none;
+            background-color: #63963b;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all .5s ease;
+        }
+
+        .chats-footer button:hover {
+            background-color: #538c27;
+        }
+
+
+        /* MEDIA QUERY  */
+        @media screen and (max-width:768px) {
+            .hero {
+                width: 90%;
+            }
+
+            .hero img {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .register {
+                flex-direction: column;
+                width: 90%;
+            }
+
+            .register img {
+                width: 50%;
+                margin-bottom: 1rem;
+            }
+
+            .register .user-form {
+                width: 100%;
+            }
+
+            .chats {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+    </style>
 </head>
 
 <body>
