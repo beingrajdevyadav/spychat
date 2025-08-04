@@ -15,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors()); // Enable CORS for all routes
 app.use(express.static(path.join(__dirname, "../public")));
 
+app.get("/", (req, res)=>{
+    res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+
 // socket.io connection
 io.on("connection", (socket)=>{
 
